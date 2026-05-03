@@ -79,10 +79,11 @@ function FormValidat2() {
             newError.name = "invalid name"
 
         }
+        
         if (!validateEamil(userData.email)) {
             newError.email = "invalid email"
-
         };
+
         //validate pass
         if (!validatePassword(userData.password)) {
             newError.password = "invalid password"
