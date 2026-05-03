@@ -1,20 +1,26 @@
 
 import React, { useState } from 'react'
+
+
+//validation logics/helpers
 //validate userName
 function validateUserName(userName) {
     const rgx = /^[A-Za-z]{4,}$/;
     return rgx.test(userName);
 };
+
 //validate email
 function validateEamil(email) {
     const rgx = /^[^\s@]+@[^\s@]+\.[^\s@]{3,}/;
     return rgx.test(email);
 }
+
 // validate password
 function validatePassword(password) {
     const rgx = /^.{6,}$/;
     return rgx.test(password);
-}
+};
+
 const inputStyle = { borderColor: "red" };
 
 //jsx part
@@ -24,18 +30,21 @@ function FormValidat2() {
         email: "",
         password: ""
     });
-    const [errorElement, setErrorElement] = useState({});
 
+    //error elements/error messgaes
+    const [errorElement, setErrorElement] = useState({});
+        //hundle change function
     function hundleOnChange(e) {
         const { name, value } = e.target;
         // setUserData({ ...userData, [name]: value });
         setUserData((prev) => {
             return { ...prev, [name]: value };
-        })
+        });
 
         // setUserData((prev) => ({
         //     ...prev, [name]: value
         // }))
+        
         let err = "";
         //validate name
         if (name === "name") {
@@ -79,7 +88,7 @@ function FormValidat2() {
             newError.name = "invalid name"
 
         }
-        
+
         if (!validateEamil(userData.email)) {
             newError.email = "invalid email"
         };
